@@ -71,7 +71,7 @@ jobs:
       run: echo "::set-output name=dir::$(pip cache dir)"
 
     - name: pip cache
-      uses: actions/cache@v2
+      uses: actions/cache@v3
       with:
         path: ${{ steps.pip-cache.outputs.dir }}
         key: ${{ runner.os }}-pip-td${{ env.TIME_PERIOD }}-py${{ matrix.python-version }}-${{ matrix.release }}-${{ matrix.requires }}-${{ hashFiles('requirements/pytorch/*.txt') }}
@@ -122,7 +122,7 @@ jobs:
       shell: bash
 
     - name: Cache datasets
-      uses: actions/cache@v2
+      uses: actions/cache@v3
       with:
         path: Datasets
         key: pl-dataset
